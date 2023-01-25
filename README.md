@@ -10,3 +10,5 @@ Steps to add existing project to github
 6. If we are using SSH from git setting need to create new key for git hub.
 7. Run 'ssh-keygen -t rsa -b 4096 -C "******@gmail.com"'. For more refere "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
 8. Run 'cat path' and get the key. path should be like this(ex: /c/Users/*****/id_rsa.pub)
+9. Title can be any meaning full name. Paste the key and click on "Add SSH Key" button.
+![image](https://user-images.githubusercontent.com/34245876/214477114-9b5c201c-dc44-46da-8d32-31277317b7be.png)
