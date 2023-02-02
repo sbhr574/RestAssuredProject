@@ -95,4 +95,39 @@ public class JsonPayload
                 "}\r\n" +
                 "";
     }
+
+    public static String date_03022023(int index)
+    {
+        return switch(index)
+                {
+                    case 1 -> "{\n" +
+                                "    \"cars\": {\n" +
+                                "        \"Nissan\": {\n" +
+                                "            \"Sentra\": {\"doors\":4, \"transmission\":\"automatic\"},\n" +
+                                "            \"Maxima\": {\"doors\":4, \"transmission\":\"automatic\"}\n" +
+                                "        },\n" +
+                                "        \"Ford\": {\n" +
+                                "            \"Taurus\": {\"doors\":4, \"transmission\":\"automatic\"},\n" +
+                                "            \"Escort\": {\"doors\":4, \"transmission\":\"automatic\"}\n" +
+                                "        }\n" +
+                                "    }\n" +
+                                "}";
+
+                    case 2 -> "{\n" +
+                            "    \"cars\": {\n" +
+                            "        \"Nissan\": [\n" +
+                            "            {\"model\":\"Sentra\", \"doors\":4},\n" +
+                            "            {\"model\":\"Maxima\", \"doors\":4},\n" +
+                            "            {\"model\":\"Skyline\", \"doors\":2}\n" +
+                            "        ],\n" +
+                            "        \"Ford\": [\n" +
+                            "            {\"model\":\"Taurus\", \"doors\":4},\n" +
+                            "            {\"model\":\"Escort\", \"doors\":4}\n" +
+                            "        ]\n" +
+                            "    }\n" +
+                            "}";
+
+                    default -> throw new IllegalStateException("Unexpected value: " + index);
+                };
+    }
 }
