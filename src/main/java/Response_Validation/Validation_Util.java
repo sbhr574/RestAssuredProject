@@ -16,13 +16,15 @@ import java.util.LinkedHashMap;
  */
 public class Validation_Util
 {
-    public static void parseObject(JSONObject json, String key)
+    public static String parseObject(JSONObject json, String key)
     {
         System.out.println("Is key available: "+json.has(key));
         if(json.has(key))
         {
             System.out.println("Key '%s' has value: ".formatted(key) +json.get(key));
+            return json.get(key).toString();
         }
+        return "#Not_Found";
     }
 
     /**
@@ -111,7 +113,7 @@ public class Validation_Util
 
         return count;
     }
-    public static void getKey(JSONObject json, String key)
+    public static String getKey(JSONObject json, String key)
     {
         boolean exists = json.has(key);
         Iterator<?> keys;
@@ -120,7 +122,6 @@ public class Validation_Util
         if(!exists)
         {
             keys = json.keys();
-            outer:
             while (keys.hasNext())
             {
                 nextKeys = (String) keys.next();
@@ -148,9 +149,9 @@ public class Validation_Util
         }
         else
         {
-            parseObject(json, key);
+            return parseObject(json, key);
         }
-
+        return "#Not_Found";
     }
 
     public static void main(String[] args) {
@@ -217,9 +218,12 @@ public class Validation_Util
 //
 //        System.out.println(getValueCount(js, "first_name", "Tracey"));
 //
-//        getKey(js, "first_name");
+        getKey(js, "first_name");
 
-        System.out.println(isValueAvailableOnJsonObject(str, "support", "first_name"));
+//        System.out.println(isValueAvailableOnJsonObject(str, "total", "6"));
+
         System.out.println(isValueAvailableOnJsonObject(str, "data", "Tracey"));
+        System.out.println(isValueAvailableOnJsonObject(str, "support", "first_name"));
+
     }
 }
