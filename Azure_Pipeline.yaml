@@ -1,0 +1,51 @@
+# Azure pipeline
+
+# This is global configuration. Under resources, we can put repositories, pipelines, build, webhooks
+resources:
+  repositories:
+    - repository: templates
+      type: git
+
+# This is global configuration.
+schedule:
+  - cron:
+
+# This is global configuration. here we can define PR , we can include and exclude
+trigger: branch name
+
+# This is global configuration.
+variables:
+  - group: 'Test_Variables'
+  - name: var
+    value: value1
+
+# This is global configuration.
+parameters:
+  - name: param1
+    displayName: destroy
+    default: true
+    type: boolean
+    instance: dev
+
+# This is global configuration. define agent pool
+pool: Subhajit-Windows64_1
+
+stages:
+  - stage: build
+    displayName: Deploy Feature
+    pool: Subhajit-Windows64_2
+
+    jobs:
+      - job: job_1
+        steps:
+          - scripts: echo 'I am in job 1'
+          - task:
+
+      - job: job_2
+        steps:
+          - scripts: echo 'I am in job 1'
+          - task: copyFile@2
+            displayName: run Test
+            inputs:
+              sourceFolder: $(var)  # this is how we can call variable
+              activate: ${parameters.param1}  # this is how we can call parameters
