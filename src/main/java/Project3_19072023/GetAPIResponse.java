@@ -3,7 +3,6 @@ package Project3_19072023;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -31,6 +30,10 @@ public class GetAPIResponse
         Response response = RestAssured.given().contentType(ContentType.JSON).baseUri("https://restful-booker.herokuapp.com/booking")
                 .when().post().then().assertThat().header("Server", "Cowboy")
                 .statusCode(200).extract().response();
+
+        Response response1 = RestAssured.given().contentType(ContentType.JSON).baseUri("https://restful-booker.herokuapp.com/booking")
+                .when().post();
+
 
         String converted_Response = response.asString();
 //        Assert.assertTrue(converted_Response.contains("bookingid"));
