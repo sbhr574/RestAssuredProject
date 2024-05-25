@@ -1,0 +1,16 @@
+{
+  "firstName": "Subhajit",
+  "lastName": "Roy",
+  "address": [
+    {
+      "street": "Sarjapura Road",
+      "city": "bangalore urban",
+      "state": "Karnataka"
+    },
+    {
+      "street": "old airport Road",
+      "city": "bangalore",
+      "state": "Karnataka"
+    }
+  ]
+}
